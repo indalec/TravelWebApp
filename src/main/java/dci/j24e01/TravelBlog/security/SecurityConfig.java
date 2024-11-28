@@ -11,25 +11,25 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.rememberme.InMemoryTokenRepositoryImpl;
 
+
+
 @Configuration
 public class SecurityConfig {
     Dotenv dotenv = Dotenv.load();
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
-
         String key = dotenv.get("rememberMeKey");
 
         httpSecurity.authorizeHttpRequests(auth -> {
             auth.requestMatchers("/", "/css/**", "/icons/**", "/fonts/**", "/images/**", "/submit", "/js/**").permitAll();
             auth.requestMatchers("/admin_panel/**").hasRole("ADMIN");
             auth.requestMatchers("/admin").permitAll();
-            auth.requestMatchers("admin_panel").authenticated();
             auth.anyRequest().permitAll();
         });
 
         httpSecurity.formLogin(form -> form
-                .loginPage("/admin")
+                .loginPage("/admin")  // Ensure this is set correctly
                 .loginProcessingUrl("/login")
                 .defaultSuccessUrl("/admin_panel", true)
                 .permitAll()

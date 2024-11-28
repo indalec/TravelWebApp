@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" rel="stylesheet">
+    <style>
+        /* Additional styling for the login form */
+        .login-container {
+            max-width: 400px;
+            margin: 100px auto;
+        }
+
+        .login-box {
+            padding: 30px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+
+        .login-box h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="login-container">
+    <div class="login-box">
+        <h1 class="title">Admin Login</h1>
+
+        <!-- Login Form -->
+        <form action="/login" method="post">
+            <div class="field">
+                <label class="label">Username</label>
+                <div class="control">
+                    <input class="input" type="text" name="username" placeholder="Enter your username" required>
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Password</label>
+                <div class="control">
+                    <input class="input" type="password" name="password" placeholder="Enter your password" required>
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <button class="button is-primary is-fullwidth" type="submit">Login</button>
+                </div>
+            </div>
+        </form>
+
+        <div class="form-container">
+            <!-- Link to the register page or forgot password -->
+            <p class="has-text-centered">
+                <a href="#" class="is-size-7">Forgot your password?</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>
