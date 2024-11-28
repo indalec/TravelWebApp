@@ -1,0 +1,14 @@
+body {
+
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.hero-body {
+    background-image: url("/images/hamburg.jpg");
+    background-size: cover;
+}
