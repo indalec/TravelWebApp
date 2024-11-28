@@ -1,4 +1,4 @@
-package dci.j24e01.TravelBlog.controllers;
+package dci.j24e01.TravelBlog.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
