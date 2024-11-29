@@ -12,22 +12,6 @@
 </head>
 <body>
 <header th:replace="~{fragments/header.html :: header}"> </header>
-<!-- Navbar -->
-<!--<nav class="navbar is-primary" role="navigation" aria-label="main navigation">-->
-<!--    <div class="navbar-brand">-->
-<!--        <a class="navbar-item" href="/">-->
-<!--            <img src="/images/logo.png" alt="Travel Blog Logo">-->
-<!--        </a>-->
-<!--    </div>-->
-<!--    <div id="navbarBasicExample" class="navbar-menu">-->
-<!--        <div class="navbar-start">-->
-<!--            <a class="navbar-item" href="/admin_panel">Admin Panel</a>-->
-<!--            <a class="navbar-item" href="/locations">Locations</a>-->
-<!--            <a class="navbar-item" href="/about">About</a>-->
-<!--            <a class="navbar-item" href="/logout">Logout</a>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</nav>-->
 
 <!-- Main Content -->
 <div class="container">
@@ -36,17 +20,23 @@
     <!-- Hero Section -->
     <div class="box">
         <h2 class="title is-4">Hero Section Settings</h2>
-        <form action="/admin_panel/hero_settings" method="POST">
+        <!-- Change the form action to the same page: /admin_panel -->
+        <form action="/admin_panel" method="POST">
+            <input type="hidden" name="_csrf" value="${_csrf.token}" />
             <div class="field">
                 <label class="label">Background Image URL</label>
                 <div class="control">
-                    <input class="input" type="text" name="background_image_url" placeholder="Enter the background image URL" required>
+                    <input class="input" type="text" name="background_image_url"
+                           placeholder="Enter the background image URL"
+                           th:value="${heroSettings != null ? heroSettings.backgroundImageUrl : ''}" required>
                 </div>
             </div>
             <div class="field">
                 <label class="label">Title</label>
                 <div class="control">
-                    <input class="input" type="text" name="title" placeholder="Enter the title for the homepage" required>
+                    <input class="input" type="text" name="title"
+                           placeholder="Enter the title for the homepage"
+                           th:value="${heroSettings != null ? heroSettings.title : ''}" required>
                 </div>
             </div>
             <div class="field is-grouped">
@@ -112,7 +102,7 @@
 </div>
 
 <!-- Footer -->
-<<footer th:insert="~{fragments/footer.html :: footer}"></footer>
+<footer th:insert="~{fragments/footer.html :: footer}"></footer>
 
 </body>
 </html>
