@@ -7,24 +7,27 @@
     <!-- Bulma CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css"> <!-- External custom CSS if needed -->
+    <link rel="stylesheet" href="/css/bulma.min.css">
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
+<header th:replace="~{fragments/header.html :: header}"> </header>
 <!-- Navbar -->
-<nav class="navbar is-primary" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-        <a class="navbar-item" href="/">
-            <img src="/images/logo.png" alt="Travel Blog Logo">
-        </a>
-    </div>
-    <div id="navbarBasicExample" class="navbar-menu">
-        <div class="navbar-start">
-            <a class="navbar-item" href="/admin_panel">Admin Panel</a>
-            <a class="navbar-item" href="/locations">Locations</a>
-            <a class="navbar-item" href="/about">About</a>
-            <a class="navbar-item" href="/logout">Logout</a>
-        </div>
-    </div>
-</nav>
+<!--<nav class="navbar is-primary" role="navigation" aria-label="main navigation">-->
+<!--    <div class="navbar-brand">-->
+<!--        <a class="navbar-item" href="/">-->
+<!--            <img src="/images/logo.png" alt="Travel Blog Logo">-->
+<!--        </a>-->
+<!--    </div>-->
+<!--    <div id="navbarBasicExample" class="navbar-menu">-->
+<!--        <div class="navbar-start">-->
+<!--            <a class="navbar-item" href="/admin_panel">Admin Panel</a>-->
+<!--            <a class="navbar-item" href="/locations">Locations</a>-->
+<!--            <a class="navbar-item" href="/about">About</a>-->
+<!--            <a class="navbar-item" href="/logout">Logout</a>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</nav>-->
 
 <!-- Main Content -->
 <div class="container">
@@ -109,13 +112,7 @@
 </div>
 
 <!-- Footer -->
-<footer class="footer has-background-light">
-    <div class="content has-text-centered">
-        <p>
-            <strong>Travel Blog</strong> by <a href="#">Your Name</a>.
-        </p>
-    </div>
-</footer>
+<<footer th:insert="~{fragments/footer.html :: footer}"></footer>
 
 </body>
 </html>

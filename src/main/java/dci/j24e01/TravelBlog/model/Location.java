@@ -1,10 +1,10 @@
 package dci.j24e01.TravelBlog.model;
 
 import dci.j24e01.TravelBlog.model.User;
-import jakarta.persistence.*;
-import org.springframework.data.annotation.Id;
+
 
 import jakarta.persistence.*;
+
 import java.util.Date;
 import java.util.Objects;
 
