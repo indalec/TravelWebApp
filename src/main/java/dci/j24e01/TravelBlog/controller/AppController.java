@@ -16,8 +16,8 @@ public class AppController {
     // Redirect to the admin panel after a successful login (handled by Spring Security)
     @RequestMapping("/admin_panel")
     public String showAdminPanel() {
-        // If you have an admin panel page, return its name here
-        return "admin_panel";  // Redirect to the admin panel page
+
+        return "admin_panel";
     }
 
     // Home page for the general user

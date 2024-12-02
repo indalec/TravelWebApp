@@ -74,20 +74,20 @@ public class AdminController {
     @PostMapping("/hero_settings")
     public String saveHeroSettings(@RequestParam("background_image_url") String backgroundImageUrl,
                                    @RequestParam("title") String title, Model model) {
-        // Retrieve the first hero setting, or create a new one if none exist
+
         HeroSettings heroSettings = heroSettingsRepository.findAll().stream().findFirst().orElse(new HeroSettings());
 
-        // Update the hero settings with the new data
+
         heroSettings.setBackgroundImageUrl(backgroundImageUrl);
         heroSettings.setTitle(title);
 
-        // Save the updated hero settings to the database
+
         heroSettingsRepository.save(heroSettings);
 
-        // Add the updated hero settings to the model to refresh the page with new data
+
         model.addAttribute("heroSettings", heroSettings);
 
-        // Return the admin_panel view without redirecting, so the user stays on the same page
+
         return "admin_panel";
     }
 

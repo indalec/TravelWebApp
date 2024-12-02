@@ -23,13 +23,13 @@ public class SecurityConfig {
 
         httpSecurity.authorizeHttpRequests(auth -> {
             auth.requestMatchers("/", "/css/**", "/icons/**", "/fonts/**", "/images/**", "/submit", "/js/**").permitAll();
-            auth.requestMatchers("/admin_panel/**").hasRole("ADMIN");
+//            auth.requestMatchers("/admin_panel/**").hasRole("ADMIN");
             auth.requestMatchers("/admin").permitAll();
             auth.anyRequest().permitAll();
         });
 
         httpSecurity.formLogin(form -> form
-                .loginPage("/admin")  // Ensure this is set correctly
+                .loginPage("/admin")
                 .loginProcessingUrl("/login")
                 .defaultSuccessUrl("/admin_panel", true)
                 .permitAll()
