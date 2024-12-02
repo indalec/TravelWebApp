@@ -21,8 +21,17 @@
     <div class="box">
         <h2 class="title is-4">Hero Section Settings</h2>
         <!-- Change the form action to the same page: /admin_panel -->
-        <form action="/admin_panel" method="POST">
-            <input type="hidden" name="_csrf" value="${_csrf.token}" />
+
+        <!-- HELDER: the post mapping needs to goto admin_panel/hero_settings
+                because the controller that is saving the data for the hero settings
+                is in the AdminController.java file
+                in a PostMapping for /hero_settings
+                and because the full controller has a RequesMapping for admin_panel
+                -->
+        <form action="/admin_panel/hero_settings" method="POST">
+
+            <!-- HELDER: the csrf.token value needs to be in a th: property or else thymeleaf will not render it dynamically -->
+            <input type="hidden" name="_csrf" th:value="${_csrf.token}" />
             <div class="field">
                 <label class="label">Background Image URL</label>
                 <div class="control">
